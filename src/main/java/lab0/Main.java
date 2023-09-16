@@ -68,6 +68,22 @@ public class Main {
         long fileSizeInBytes = 2048;
         long fileSizeInKilobytes = AllFunc.convertBytesToKilobytes(fileSizeInBytes);
         System.out.println("File size in kilobytes: " + fileSizeInKilobytes + " KB");
+
+        System.out.println("///////////////////");
+        int M = 3; // Кількість рядків
+        int N = 4; // Кількість стовпців
+        int[] originalNumbers = {1, 2, 3};
+
+        int[][] matrix = AllFunc.createMatrix(M, N, originalNumbers);
+
+        System.out.println("The resulting matrix:");
+
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static void printArray(int[] arr) {

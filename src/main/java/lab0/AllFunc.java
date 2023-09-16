@@ -138,4 +138,17 @@ public class AllFunc {
     public static long convertBytesToKilobytes(long bytes) {
         return bytes / 1024;
     }
+
+    // 11
+    public static int[][] createMatrix(int M, int N, int[] originalNumbers) {
+        int[][] matrix = new int[M][N];
+
+        for (int j = 0; j < N; j++) {
+            for (int i = 0; i < M; i++) {
+                matrix[i][j] = originalNumbers[i];
+            }
+        }
+
+        return matrix;
+    }
 }

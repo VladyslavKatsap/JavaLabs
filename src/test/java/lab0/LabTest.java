@@ -216,4 +216,24 @@ public class LabTest {
 
         assertEquals(expectedKilobytes, resultKilobytes);
     }
+
+    @Test
+    public void testCreateMatrix() {
+        int M = 3;
+        int N = 4;
+        int[] originalNumbers = {1, 2, 3};
+
+        // Очікуваний результат
+        int[][] expectedMatrix = {
+                {1, 1, 1, 1},
+                {2, 2, 2, 2},
+                {3, 3, 3, 3}
+        };
+
+        // Викликаємо функцію для тестування
+        int[][] resultMatrix = AllFunc.createMatrix(M, N, originalNumbers);
+
+        // Перевіряємо, чи отриманий результат співпадає з очікуваним
+        assertEquals(expectedMatrix, resultMatrix);
+    }
 }
