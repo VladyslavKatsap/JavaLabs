@@ -2,8 +2,8 @@ package lab0;
 public class Main {
     public static void main(String[] args) {
 
-        int[] progression1 = AllFunc.ArithmeticProgression1(5, 2, 3);
-        int[] progression2 = AllFunc.ArithmeticProgression2(6, 4, 2);
+        int[] progression1 = AllFunc.arithmeticProgression1(5, 2, 3);
+        int[] progression2 = AllFunc.arithmeticProgression2(6, 4, 2);
 
         System.out.println("First method:");
         printArray(progression1);

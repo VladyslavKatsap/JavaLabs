@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 
 public class AllFunc {
     //1
-    public static int[] ArithmeticProgression1(int N, int A, int D) {
+    public static int[] arithmeticProgression1(int N, int A, int D) {
         int[] progression = new int[N];
         for (int i = 0; i < N; i++) {
             progression[i] = A + i * D;
@@ -13,7 +13,7 @@ public class AllFunc {
         return progression;
     }
     //2
-    public static int[] ArithmeticProgression2(int N, int A, int D) {
+    public static int[] arithmeticProgression2(int N, int A, int D) {
         int[] progression = new int[N];
         for (int i = 0; i < N; i++) {
             progression[i] = A + i * 2 * D;
