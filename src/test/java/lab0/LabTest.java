@@ -205,4 +205,15 @@ public class LabTest {
         int expectedZero = 10;
         assertEquals(expectedZero, AllFunc.modifyNumber(zeroNumber));
     }
+
+    @Test
+    public void testConvertBytesToKilobytes() {
+        long bytes = 1024 * 5; // 5 кілобайт в байтах
+
+        long expectedKilobytes = 5;
+
+        long resultKilobytes = AllFunc.convertBytesToKilobytes(bytes);
+
+        assertEquals(expectedKilobytes, resultKilobytes);
+    }
 }

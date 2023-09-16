@@ -63,6 +63,11 @@ public class Main {
         int number = 5;
         int modifiedNumber = AllFunc.modifyNumber(number);
         System.out.println("Result: " + modifiedNumber);
+
+        System.out.println("///////////////////");
+        long fileSizeInBytes = 2048;
+        long fileSizeInKilobytes = AllFunc.convertBytesToKilobytes(fileSizeInBytes);
+        System.out.println("File size in kilobytes: " + fileSizeInKilobytes + " KB");
     }
 
     public static void printArray(int[] arr) {

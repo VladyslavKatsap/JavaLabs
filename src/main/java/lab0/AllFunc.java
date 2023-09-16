@@ -133,4 +133,9 @@ public class AllFunc {
             return 10;
         }
     }
+
+    // 10
+    public static long convertBytesToKilobytes(long bytes) {
+        return bytes / 1024;
+    }
 }
