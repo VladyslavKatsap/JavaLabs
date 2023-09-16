@@ -290,4 +290,37 @@ public class LabTest {
 
         assertEquals(new double[]{expectedArithmetic, expectedGeometric}, result, 0.0001);
     }
+
+    @Test
+    public void testCalculateAverage() {
+        double[] numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+
+        double expectedAverage = (1.0 + 2.0 + 3.0 + 4.0 + 5.0) / 5;
+
+        double resultAverage = AllFunc.calculateAverage(numbers);
+
+        assertEquals(expectedAverage, resultAverage, 0.0001);
+    }
+
+    @Test
+    public void testGetPreviousChar() {
+        char inputChar = 'B';
+
+        char expectedPreviousChar = 'A';
+
+        char resultPreviousChar = AllFunc.getPreviousChar(inputChar);
+
+        assertEquals(expectedPreviousChar, resultPreviousChar);
+    }
+
+    @Test
+    public void testGetNextChar() {
+        char inputChar = 'X';
+
+        char expectedNextChar = 'Y';
+
+        char resultNextChar = AllFunc.getNextChar(inputChar);
+
+        assertEquals(expectedNextChar, resultNextChar);
+    }
 }

@@ -182,14 +182,40 @@ public class AllFunc {
     }
 
     // 14
-        public static double[] mean(double X, double Y) {
-            double[] result = new double[2];
-            if (X > 0 && Y > 0) {
-                result[0] = (X + Y) / 2; // Середнє арифметичне
-                result[1] = Math.sqrt(X * Y); // Середнє геометричне
-            } else {
-               // System.out.println("X і Y мають бути додатніми числами.");
-            }
-            return result;
+    public static double[] mean(double X, double Y) {
+        double[] result = new double[2];
+        if (X > 0 && Y > 0) {
+            result[0] = (X + Y) / 2; // Середнє арифметичне
+            result[1] = Math.sqrt(X * Y); // Середнє геометричне
+        } else {
+            // System.out.println("X і Y мають бути додатніми числами.");
         }
+        return result;
+    }
+
+    // 15
+    public static double calculateAverage(double[] numbers) {
+        double sum = 0.0;
+
+        for (double number : numbers) {
+            sum += number;
+        }
+
+        double average = sum / numbers.length;
+
+        return average;
+    }
+
+    // 16
+    public static char getPreviousChar(char C) {
+        int charCode = (int) C;
+        char prevChar = (char) (charCode - 1);
+        return prevChar;
+    }
+
+    public static char getNextChar(char C) {
+        int charCode = (int) C;
+        char nextChar = (char) (charCode + 1);
+        return nextChar;
+    }
 }

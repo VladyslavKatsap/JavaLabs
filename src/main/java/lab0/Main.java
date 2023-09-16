@@ -138,6 +138,20 @@ public class Main {
 
         System.out.println("Arithmetic mean (A, D): " + AMeanAD);
         System.out.println("Arithmetic mean (A, D): " + GMeanAD);
+
+        System.out.println("///////////////////");
+        double[] numbers2 = {10.5, 20.3, 15.7, 30.2, 5.8, 12.4, 8.6, 25.1, 18.9, 7.0};
+        double average = AllFunc.calculateAverage(numbers2);
+        System.out.println("Arithmetic mean: " + average);
+
+        System.out.println("///////////////////");
+        char C = 'B';
+
+        char prevChar = AllFunc.getPreviousChar(C);
+        char nextChar = AllFunc.getNextChar(C);
+
+        System.out.println("Previous Char " + C + " in code table: " + prevChar);
+        System.out.println("Next Char " + C + " in code table: " + nextChar);
     }
 
     public static void printArray(int[] arr) {
