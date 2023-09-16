@@ -110,6 +110,34 @@ public class Main {
 
         System.out.println("Adress P1: " + P1);
         System.out.println("Adress P2: " + P2);
+
+        System.out.println("///////////////////");
+        double A2 = 5.0;
+        double B2 = 10.0;
+        double C2 = 15.0;
+        double D2 = 20.0;
+
+        double[] resultAB = AllFunc.mean(A2, B2);
+        double[] resultAC = AllFunc.mean(A2, C2);
+        double[] resultAD = AllFunc.mean(A2, D2);
+
+        double AMeanAB = resultAB[0];
+        double GMeanAB = resultAB[1];
+
+        double AMeanAC = resultAC[0];
+        double GMeanAC = resultAC[1];
+
+        double AMeanAD = resultAD[0];
+        double GMeanAD = resultAD[1];
+
+        System.out.println("Arithmetic mean (A, B): " + AMeanAB);
+        System.out.println("Arithmetic mean (A, B): " + GMeanAB);
+
+        System.out.println("Arithmetic mean (A, C): " + AMeanAC);
+        System.out.println("Arithmetic mean (A, C): " + GMeanAC);
+
+        System.out.println("Arithmetic mean (A, D): " + AMeanAD);
+        System.out.println("Arithmetic mean (A, D): " + GMeanAD);
     }
 
     public static void printArray(int[] arr) {

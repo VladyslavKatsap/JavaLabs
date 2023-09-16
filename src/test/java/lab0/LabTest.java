@@ -278,4 +278,16 @@ public class LabTest {
         stack.pop();
         assertEquals(10, AllFunc.getTopOfStack(stack));
     }
+    @Test
+    public void testMean() {
+        double X = 4.0;
+        double Y = 9.0;
+
+        double expectedArithmetic = (X + Y) / 2;
+        double expectedGeometric = Math.sqrt(X * Y);
+
+        double[] result = AllFunc.mean(X, Y);
+
+        assertEquals(new double[]{expectedArithmetic, expectedGeometric}, result, 0.0001);
+    }
 }

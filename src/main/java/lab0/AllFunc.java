@@ -180,4 +180,16 @@ public class AllFunc {
     public static int getTopOfStack(Stack<Integer> stack) {
         return stack.isEmpty() ? -1 : stack.peek(); // Повертаємо -1, якщо стек порожній
     }
+
+    // 14
+        public static double[] mean(double X, double Y) {
+            double[] result = new double[2];
+            if (X > 0 && Y > 0) {
+                result[0] = (X + Y) / 2; // Середнє арифметичне
+                result[1] = Math.sqrt(X * Y); // Середнє геометричне
+            } else {
+               // System.out.println("X і Y мають бути додатніми числами.");
+            }
+            return result;
+        }
 }
