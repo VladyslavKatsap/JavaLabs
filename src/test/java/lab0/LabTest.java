@@ -179,4 +179,30 @@ public class LabTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testGetDescendingNumbersBetween() {
+        int A = 5;
+        int B = 10;
+
+        int[] expected = {9, 8, 7, 6};
+
+        int[] result = AllFunc.getDescendingNumbersBetween(A, B);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testModifyNumber() {
+        int positiveNumber = 5;
+        int expectedPositive = positiveNumber + 1;
+        assertEquals(expectedPositive, AllFunc.modifyNumber(positiveNumber));
+
+        int negativeNumber = -5;
+        int expectedNegative = negativeNumber - 2;
+        assertEquals(expectedNegative, AllFunc.modifyNumber(negativeNumber));
+
+        int zeroNumber = 0;
+        int expectedZero = 10;
+        assertEquals(expectedZero, AllFunc.modifyNumber(zeroNumber));
+    }
 }

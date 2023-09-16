@@ -53,14 +53,16 @@ public class Main {
 
         int A1 = 5;
         int B1 = 10;
-
         int[] numbers = AllFunc.getDescendingNumbersBetween(A1, B1);
         int count = numbers.length;
-
         System.out.println("Integers in descending order between " + A1 + " and " + B1 + ":");
         printArray(numbers);
-
         System.out.println("The total number of numbers in the range: " + count);
+
+        System.out.println("///////////////////");
+        int number = 5;
+        int modifiedNumber = AllFunc.modifyNumber(number);
+        System.out.println("Result: " + modifiedNumber);
     }
 
     public static void printArray(int[] arr) {

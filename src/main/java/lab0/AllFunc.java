@@ -123,4 +123,14 @@ public class AllFunc {
         return numbers;
     }
 
+    // 9
+    public static int modifyNumber(int number) {
+        if (number > 0) {
+            return number + 1;
+        } else if (number < 0) {
+            return number - 2;
+        } else {
+            return 10;
+        }
+    }
 }
