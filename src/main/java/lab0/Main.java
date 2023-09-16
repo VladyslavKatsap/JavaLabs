@@ -84,6 +84,21 @@ public class Main {
             }
             System.out.println();
         }
+
+        System.out.println("///////////////////");
+        int N1 = 3; // Кількість прямокутників
+        int[] lengths = {3, 5, 4}; // Довжини прямокутників
+        int[] widths = {2, 7, 6}; // Ширини прямокутників
+
+        int[] perimeters = new int[N1];
+
+        for (int i = 0; i < N1; i++) {
+            perimeters[i] = AllFunc.calculatePerimeter(lengths[i], widths[i]);
+        }
+
+        int maxPerimeter = AllFunc.findMaxPerimeter(perimeters);
+
+        System.out.println("The maximum perimeter of a rectangle: " + maxPerimeter);
     }
 
     public static void printArray(int[] arr) {

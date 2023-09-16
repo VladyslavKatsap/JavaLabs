@@ -151,4 +151,21 @@ public class AllFunc {
 
         return matrix;
     }
+
+    // 12
+    public static int findMaxPerimeter(int[] perimeters) {
+        int maxPerimeter = Integer.MIN_VALUE;
+
+        for (int perimeter : perimeters) {
+            if (perimeter > maxPerimeter) {
+                maxPerimeter = perimeter;
+            }
+        }
+
+        return maxPerimeter;
+    }
+
+    public static int calculatePerimeter(int length, int width) {
+        return 2 * (length + width);
+    }
 }

@@ -223,17 +223,37 @@ public class LabTest {
         int N = 4;
         int[] originalNumbers = {1, 2, 3};
 
-        // Очікуваний результат
         int[][] expectedMatrix = {
                 {1, 1, 1, 1},
                 {2, 2, 2, 2},
                 {3, 3, 3, 3}
         };
 
-        // Викликаємо функцію для тестування
         int[][] resultMatrix = AllFunc.createMatrix(M, N, originalNumbers);
 
-        // Перевіряємо, чи отриманий результат співпадає з очікуваним
         assertEquals(expectedMatrix, resultMatrix);
+    }
+
+    @Test
+    public void testFindMaxPerimeter() {
+        int[] perimeters = {10, 20, 15, 25, 30};
+
+        int expectedMaxPerimeter = 30;
+
+        int resultMaxPerimeter = AllFunc.findMaxPerimeter(perimeters);
+
+        assertEquals(expectedMaxPerimeter, resultMaxPerimeter);
+    }
+
+    @Test
+    public void testCalculatePerimeter2() {
+        int length = 5;
+        int width = 10;
+
+        int expectedPerimeter = 2 * (length + width);
+
+        int resultPerimeter = AllFunc.calculatePerimeter(length, width);
+
+        assertEquals(expectedPerimeter, resultPerimeter);
     }
 }
