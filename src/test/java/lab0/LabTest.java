@@ -2,6 +2,12 @@ package lab0;
 
 import static org.testng.Assert.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.testng.annotations.Test;
 
 public class LabTest {
@@ -53,5 +59,124 @@ public class LabTest {
         double result = AllFunc.calculatePerimeter(a, b);
 
         assertEquals(expected, result, 0.0001);
+    }
+
+    @Test
+    public void testIsEvenNumber() {
+        // Тест на парне число
+        int evenNumber = 4;
+        assertTrue(AllFunc.isEvenNumber(evenNumber));
+
+        // Тест на непарне число
+        int oddNumber = 7;
+        assertFalse(AllFunc.isEvenNumber(oddNumber));
+    }
+
+    @Test
+    public void testGetSeason() {
+        // Тест на зиму (грудень)
+        assertEquals("winter", AllFunc.getSeason(12));
+        assertEquals("winter", AllFunc.getSeason(1));
+        assertEquals("winter", AllFunc.getSeason(2));
+
+        // Тест на весну (квітень)
+        assertEquals("spring", AllFunc.getSeason(3));
+        assertEquals("spring", AllFunc.getSeason(4));
+        assertEquals("spring", AllFunc.getSeason(5));
+
+        // Тест на літо (липень)
+        assertEquals("summer", AllFunc.getSeason(6));
+        assertEquals("summer", AllFunc.getSeason(7));
+        assertEquals("summer", AllFunc.getSeason(8));
+
+        // Тест на осінь (жовтень)
+        assertEquals("autumn", AllFunc.getSeason(9));
+        assertEquals("autumn", AllFunc.getSeason(10));
+        assertEquals("autumn", AllFunc.getSeason(11));
+
+        // Тест на невідомий місяць
+        assertEquals("unknown month", AllFunc.getSeason(13));
+    }
+
+    @Test
+    public void testCalculateSumOfSquares() {
+        double num1 = 3.0;
+        double num2 = 4.0;
+
+        double expected = 3.0 * 3.0 + 4.0 * 4.0;
+
+        double result = AllFunc.calculateSumOfSquares(num1, num2);
+
+        assertEquals(expected, result, 0.0001);
+    }
+
+    @Test
+    public void testCalculateDifferenceOfSquares() {
+        double num1 = 5.0;
+        double num2 = 3.0;
+
+        double expected = 5.0 * 5.0 - 3.0 * 3.0;
+
+        double result = AllFunc.calculateDifferenceOfSquares(num1, num2);
+
+        assertEquals(expected, result, 0.0001);
+    }
+
+    @Test
+    public void testCalculateProductOfSquares() {
+        double num1 = 3.0;
+        double num2 = 4.0;
+
+        double expected = 3.0 * 3.0 * 4.0 * 4.0;
+
+        double result = AllFunc.calculateProductOfSquares(num1, num2);
+
+        assertEquals(expected, result, 0.0001);
+    }
+
+    @Test
+    public void testCalculateQuotientOfSquares() {
+        double num1 = 4.0;
+        double num2 = 2.0;
+
+        double expected = (4.0 * 4.0) / (2.0 * 2.0);
+
+        double result = AllFunc.calculateQuotientOfSquares(num1, num2);
+
+        assertEquals(expected, result, 0.0001);
+
+        // Тест на випадок, коли num2 = 0
+        num2 = 0.0;
+
+        double expectedNaN = Double.NaN;
+
+        double resultNaN = AllFunc.calculateQuotientOfSquares(num1, num2);
+
+        assertTrue(Double.isNaN(resultNaN));
+    }
+
+    @Test
+    public void testGenerateProgressionFile() {
+        String fileName = "test_progression.txt";
+        double A = 1.0;
+        double D = 2.0;
+
+        // Викликаємо метод для створення файлу
+        AllFunc.generateProgressionFile(fileName, A, D);
+
+        // Перевіряємо, чи файл існує
+        assertTrue(Files.exists(Paths.get(fileName)));
+
+        // Перевіряємо, чи вміст файлу відповідає прогресії
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            for (int i = 0; i < 10; i++) {
+                double term = A + i * D;
+                String line = reader.readLine();
+                double value = Double.parseDouble(line);
+                assertTrue(Math.abs(term - value) < 0.0001);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

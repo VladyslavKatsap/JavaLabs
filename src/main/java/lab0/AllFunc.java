@@ -1,4 +1,5 @@
 package lab0;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ public class AllFunc {
         }
         return progression;
     }
+
     //2
     public static int[] arithmeticProgression2(int N, int A, int D) {
         int[] progression = new int[N];
@@ -20,6 +22,7 @@ public class AllFunc {
         }
         return progression;
     }
+
     //3
     public static double calculateArea(double a, double b) {
         return a * b;
@@ -28,10 +31,12 @@ public class AllFunc {
     public static double calculatePerimeter(double a, double b) {
         return 2 * (a + b);
     }
+
     //4
     public static boolean isEvenNumber(int number) {
         return number % 2 == 0;
     }
+
     //5
     public static String getSeason(int month) {
         String season;
@@ -39,29 +44,30 @@ public class AllFunc {
             case 12:
             case 1:
             case 2:
-                season = "çèìà";
+                season = "winter";
                 break;
             case 3:
             case 4:
             case 5:
-                season = "âåñíà";
+                season = "spring";
                 break;
             case 6:
             case 7:
             case 8:
-                season = "ë³òî";
+                season = "summer";
                 break;
             case 9:
             case 10:
             case 11:
-                season = "îñ³íü";
+                season = "autumn";
                 break;
             default:
-                season = "íåâ³äîìèé ì³ñÿöü";
+                season = "unknown month";
                 break;
         }
         return season;
     }
+
     //6
     public static double calculateSumOfSquares(double num1, double num2) {
         return num1 * num1 + num2 * num2;
@@ -79,10 +85,11 @@ public class AllFunc {
         if (num2 != 0) {
             return (num1 * num1) / (num2 * num2);
         } else {
-            System.out.println("Äğóãå ÷èñëî íå ìîæå áóòè íóëü.");
+            //System.out.println("Äğóãå ÷èñëî íå ìîæå áóòè íóëü.");
             return Double.NaN;
         }
     }
+
     //7
     public static void generateProgressionFile(String fileName, double A, double D) {
         try {
@@ -95,10 +102,25 @@ public class AllFunc {
             }
 
             printWriter.close();
-            System.out.println("Ïğîãğåñ³ÿ áóëà çàïèñàíà â ôàéë " + fileName);
+            //System.out.println("Ïğîãğåñ³ÿ áóëà çàïèñàíà â ôàéë " + fileName);
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Ïîìèëêà ïğè ğîáîò³ ç ôàéëîì.");
+            //System.err.println("Ïîìèëêà ïğè ğîáîò³ ç ôàéëîì.");
         }
     }
+
+    // 8
+    public static int[] getDescendingNumbersBetween(int A, int B) {
+        int count = B - A - 1;
+        int[] numbers = new int[count];
+        int index = 0;
+
+        for (int i = B - 1; i > A; i--) {
+            numbers[index] = i;
+            index++;
+        }
+
+        return numbers;
+    }
+
 }

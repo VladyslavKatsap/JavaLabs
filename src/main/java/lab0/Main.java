@@ -1,4 +1,5 @@
 package lab0;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -31,7 +32,7 @@ public class Main {
 
         String season = AllFunc.getSeason(monthNumber);
 
-        System.out.println("Month №" + monthNumber + ": " + season);
+        System.out.println("Month " + monthNumber + ": " + season);
         System.out.println("///////////////////:");
         double num1 = 5.0;
         double num2 = 3.0;
@@ -46,15 +47,31 @@ public class Main {
         System.out.println("product of squares: " + productOfSquares);
         System.out.println("quotient of squares: " + quotientOfSquares);
 
-        System.out.println("///////////////////:");
+        System.out.println("///////////////////");
 
-        //AllFunc.generateProgressionFile("progression.txt", 3, 2);
+        //AllFunc.generateProgressionFile("progression.txt", 3, 2); Завдання з файлами
+
+        int A1 = 5;
+        int B1 = 10;
+
+        int[] numbers = AllFunc.getDescendingNumbersBetween(A1, B1);
+        int count = numbers.length;
+
+        System.out.println("Integers in descending order between " + A1 + " and " + B1 + ":");
+        printArray(numbers);
+
+        System.out.println("The total number of numbers in the range: " + count);
     }
 
     public static void printArray(int[] arr) {
         for (int value : arr) {
-            System.out.print(value + " ");
+            System.out.println(value);
         }
-        System.out.println();
+    }
+
+    public static void printNumbersInReverseOrder(int[] numbers) {
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            System.out.println(numbers[i]);
+        }
     }
 }
