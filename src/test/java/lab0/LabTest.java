@@ -1,7 +1,7 @@
 package lab0;
 
 import static org.testng.Assert.*;
-
+import java.util.Stack;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -255,5 +255,27 @@ public class LabTest {
         int resultPerimeter = AllFunc.calculatePerimeter(length, width);
 
         assertEquals(expectedPerimeter, resultPerimeter);
+    }
+
+    @Test
+    public void testAddElementToStackAndGetTopOfStack() {
+        Stack<Integer> stack = new Stack<>();
+
+        // Додаємо елемент в стек і отримуємо індекс вершини
+        int index1 = AllFunc.addElementToStack(stack, 5);
+        int index2 = AllFunc.addElementToStack(stack, 10);
+        int index3 = AllFunc.addElementToStack(stack, 15);
+
+        // Перевіряємо індекси вершини стеку
+        assertEquals(0, index1); // 0-індексація
+        assertEquals(1, index2); // 0-індексація
+        assertEquals(2, index3); // 0-індексація
+
+        // Перевіряємо вершину стеку
+        assertEquals(15, AllFunc.getTopOfStack(stack));
+
+        // Видаляємо елемент і перевіряємо вершину стеку
+        stack.pop();
+        assertEquals(10, AllFunc.getTopOfStack(stack));
     }
 }

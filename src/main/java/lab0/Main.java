@@ -1,5 +1,5 @@
 package lab0;
-
+import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
 
@@ -99,6 +99,17 @@ public class Main {
         int maxPerimeter = AllFunc.findMaxPerimeter(perimeters);
 
         System.out.println("The maximum perimeter of a rectangle: " + maxPerimeter);
+
+        System.out.println("///////////////////");
+        int D = 42; // Значення для додавання в стек
+
+        Stack<Integer> stack = new Stack<>(); // Створюємо стек цілих чисел
+
+        int P1 = AllFunc.addElementToStack(stack, D); // Додаємо елемент в стек та отримуємо адресу P1
+        int P2 = AllFunc.getTopOfStack(stack); // Отримуємо адресу P2 нової вершини стеку
+
+        System.out.println("Adress P1: " + P1);
+        System.out.println("Adress P2: " + P2);
     }
 
     public static void printArray(int[] arr) {

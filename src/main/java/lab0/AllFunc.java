@@ -3,6 +3,8 @@ package lab0;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Stack;
+
 
 public class AllFunc {
     //1
@@ -167,5 +169,15 @@ public class AllFunc {
 
     public static int calculatePerimeter(int length, int width) {
         return 2 * (length + width);
+    }
+
+    // 13
+    public static int addElementToStack(Stack<Integer> stack, int D) {
+        stack.push(D); // Додаємо елемент в стек
+        return stack.size() - 1; // Розмір стеку - 1 дає адресу вершини
+    }
+
+    public static int getTopOfStack(Stack<Integer> stack) {
+        return stack.isEmpty() ? -1 : stack.peek(); // Повертаємо -1, якщо стек порожній
     }
 }
