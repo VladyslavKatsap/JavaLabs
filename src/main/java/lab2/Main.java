@@ -7,13 +7,20 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Athlete student = new Athlete.AthleteBuilder("Joe")
+        Athlete athlete = new Athlete.AthleteBuilder("Andriy")
                 .dateOfBirth(LocalDate.of(2003, 11, 13))
                 .build();
 
-        Serializer TxtS = new TxtS();
-        TxtS.serialize(student, "num1.txt");
-        Athlete txtdeserialized = TxtS.deserialize("num1.txt", Athlete.class);
+//        Serializer TxtS = new TxtS();
+//        TxtS.serialize(athlete, "num1.txt");
+//        Athlete txtdeserialized = TxtS.deserialize("num1.txt", Athlete.class);
 
+//        Serializer jsonS = new JsonS();
+//        jsonS.serialize(athlete, "athlete.json");
+//        Athlete deserializedAth = jsonS.deserialize("athlete.json", Athlete.class);
+
+        Serializer XmlS = new XmlS();
+        XmlS.serialize(athlete, "athlete.xml");
+        Athlete deserialized = XmlS.deserialize("athlete.xml", Athlete.class);
     }
 }

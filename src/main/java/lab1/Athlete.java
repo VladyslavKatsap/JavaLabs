@@ -19,17 +19,17 @@ public class Athlete implements Comparable<Athlete>{
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setChampionships(List<Championship> enrollments) {
-        this.championships = championships;
-    }
+   // public void setChampionships(List<Championship> enrollments) {
+     //   this.championships = championships;
+    //}
 
     private String name;
 
     private LocalDate dateOfBirth;
-    private List<Championship> championships;
+    //private List<Championship> championships;
 
     private Athlete(AthleteBuilder builder) {
-        this.championships = new ArrayList<>();
+        //this.championships = new ArrayList<>();
         this.name = builder.name;
         this.dateOfBirth = builder.dateOfBirth;
     }
@@ -37,18 +37,18 @@ public class Athlete implements Comparable<Athlete>{
     private Athlete (){
     }
 
-    public void championshipd(Competition competition, int place) {
-        championships.add(new Championship(competition, place));
-    }
+    //public void championshipd(Competition competition, int place) {
+    //    championships.add(new Championship(competition, place));
+    //}
 
 
-    public List<Championship> getChampionships() {
-        return championships;
-    }
+//    public List<Championship> getChampionships() {
+//        return championships;
+//    }
 
     @Override
     public String toString() {
-        return "Athlete name = '" + name + "', age = " + dateOfBirth + ", championships: " + "\n" + championships;
+        return "Athlete name = '" + name + "', age = " + dateOfBirth; //", championships: " + "\n" + championships;
     }
 
     @Override
@@ -56,12 +56,12 @@ public class Athlete implements Comparable<Athlete>{
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Athlete athlete = (Athlete) obj;
-        return dateOfBirth == athlete.dateOfBirth && Objects.equals(name, athlete.name) && Objects.equals(championships, athlete.championships);
+        return dateOfBirth == athlete.dateOfBirth && Objects.equals(name, athlete.name);// && Objects.equals(championships, athlete.championships);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, dateOfBirth, championships);
+        return Objects.hash(name, dateOfBirth);
     }
 
     @Override
@@ -70,28 +70,28 @@ public class Athlete implements Comparable<Athlete>{
     }
 
 
-    public boolean hasChampForComp(String subjectName) {
-        return getChampionships().stream()
-                .anyMatch(champ -> champ.getCompetition().getName().equals(subjectName));
-    }
+//    public boolean hasChampForComp(String subjectName) {
+//        return getChampionships().stream()
+//                .anyMatch(champ -> champ.getCompetition().getName().equals(subjectName));
+//    }
 
-    public double getChampPlaseForComp(String subjectName) {
-        return getChampionships().stream()
-                .filter(enrollment -> enrollment.getCompetition().getName().equals(subjectName))
-                .findFirst()
-                .map(Championship::getPlace)
-                .orElse(0);
-    }
+//    public double getChampPlaseForComp(String subjectName) {
+//        return getChampionships().stream()
+//                .filter(enrollment -> enrollment.getCompetition().getName().equals(subjectName))
+//                .findFirst()
+//                .map(Championship::getPlace)
+//                .orElse(0);
+//    }
 
-    public double getAveragePlace(){
-
-        double totalGrade = 0.0;
-        for (Championship championship : championships) {
-            totalGrade += championship.getPlace();
-        }
-
-        return totalGrade / championships.size();
-    }
+//    public double getAveragePlace(){
+//
+//        double totalGrade = 0.0;
+//        for (Championship championship : championships) {
+//            totalGrade += championship.getPlace();
+//        }
+//
+//        return totalGrade / championships.size();
+//    }
 
     public static class AthleteBuilder {
         private String name;
