@@ -23,6 +23,10 @@ public class Athlete implements Comparable<Athlete>{
      //   this.championships = championships;
     //}
 
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
     private String name;
 
     private LocalDate dateOfBirth;

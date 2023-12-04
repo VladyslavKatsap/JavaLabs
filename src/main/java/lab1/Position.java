@@ -42,4 +42,5 @@ class Position{
                 ", athlete=" + athlete +
                 '}';
     }
+
 }

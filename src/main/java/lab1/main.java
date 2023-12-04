@@ -12,7 +12,7 @@ public class main {
                 .dateOfBirth(LocalDate.of(2004, 7, 14))
                 .build();
 
-        Championship championship= new Championship();
+        Championship championship = new Championship();
         championship.setTitle("First");
         Position position = new Position();
         position.setCompetition(benchPress);
