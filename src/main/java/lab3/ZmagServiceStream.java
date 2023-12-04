@@ -14,7 +14,7 @@ public class ZmagServiceStream implements ZmagService{
 
     private List<Athlete> athletes;
 
-    public ZmagServiceStream(List<Athlete> students){
+    public ZmagServiceStream(List<Athlete> athletes){
         this.athletes = athletes;
     }
 
