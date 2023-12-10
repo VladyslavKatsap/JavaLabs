@@ -20,6 +20,8 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.16.0'
 // https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
     implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '8.0.1.Final'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
 }
 
 test {
