@@ -1,5 +1,11 @@
 package lab1;
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +33,11 @@ public class Athlete implements Comparable<Athlete>{
         return dateOfBirth;
     }
 
+    @NotBlank(message = "Name cannot be blank")
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
     private String name;
 
+    @Past(message = "Date of birth must be in the past")
     private LocalDate dateOfBirth;
     //private List<Championship> championships;
 
@@ -37,18 +46,6 @@ public class Athlete implements Comparable<Athlete>{
         this.name = builder.name;
         this.dateOfBirth = builder.dateOfBirth;
     }
-
-    private Athlete (){
-    }
-
-    //public void championshipd(Competition competition, int place) {
-    //    championships.add(new Championship(competition, place));
-    //}
-
-
-//    public List<Championship> getChampionships() {
-//        return championships;
-//    }
 
     @Override
     public String toString() {
@@ -110,7 +107,25 @@ public class Athlete implements Comparable<Athlete>{
             return this;
         }
         public Athlete build() {
-            return new Athlete(this);
+            Athlete athlete = new Athlete(this);
+            validate(athlete);
+            return athlete;
+        }
+
+        private void validate(Athlete athlete){
+            ValidatorFactory factory = Validator.buildDefaultValidatorFactory();
+            Validator validator = factory.getValidator();
+
+            Set<String> validationMessages = new HashSet<>();
+            Set<ConstraintViolation<Athlete>> violations = validator.validate(athlete);
+
+            for (ConstraintViolation<Athlete> violation : violations) {
+                validationMessages.add(violation.getInvalidValue() + ": " + violation.getMessage());
+            }
+
+            if (!validationMessages.isEmpty()) {
+                throw new IllegalArgumentException("Invalid fields: " + String.join(", ", validationMessages));
+            }
+        }
         }
     }
-}

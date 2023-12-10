@@ -1,5 +1,6 @@
 package lab3;
 
+import jakarta.validation.Validator;
 import lab1.Athlete;
 
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ public class ZmagServices implements ZmagService {
 
     @Override
     public List<Athlete> getByPartName(String name) {
-        List<Athlete> matchingAthletes = new ArrayList<>();
+        SortedSet<Athlete> matchingAthletes = new TreeSet<>();
 
         for (Athlete athlete : athletes) {
             if (athlete.getName().contains(name)) {
@@ -38,8 +39,8 @@ public class ZmagServices implements ZmagService {
             }
         }
 
-        Collections.sort(matchingAthletes, Comparator.comparing(Athlete::getName));
-        return matchingAthletes;
+       // Collections.sort(matchingAthletes);
+        return new ArrayList<>(matchingAthletes);
     }
 
     @Override

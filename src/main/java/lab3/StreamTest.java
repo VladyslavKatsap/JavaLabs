@@ -19,40 +19,30 @@ public class StreamTest {
         Athlete athlete3 = new Athlete.AthleteBuilder("Pavlo")
                 .dateOfBirth(LocalDate.of(2000, 2, 14))
                 .build();
-        // Enroll the student in subjects and assign grades
 
         Competition bp = new Competition("Bench press", 93);
         Competition deadlift = new Competition("Deadlift", 100);
         Competition squat = new Competition("Squat", 93);
 
-
-        // Додавання студентів до списку
         List<Athlete> athletes = new ArrayList<>();
         athletes.add(athlete1);
         athletes.add(athlete2);
         athletes.add(athlete3);
 
-        // Вивід несортованих студентів
-        System.out.println("Unsorted students:");
+        System.out.println("Unsorted atheletes:");
         athletes.forEach(athlete -> System.out.println(athlete.getName() + " - " + athlete.getDateOfBirth()));
 
-
-        // Create an instance of SchoolServiceStream
         ZmagServiceStream zmagServiceStream = new ZmagServiceStream(athletes);
 
-        // Test sorting by name
         System.out.println("Sorted by name:");
         zmagServiceStream.sortAthleteByName().forEach(athlete -> System.out.println(athlete.getName()));
 
-        // Test sorting by date of birth
         System.out.println("\nSorted by date of birth:");
         zmagServiceStream.sortAthleteByName().forEach(athlete -> System.out.println(athlete.getName()));
 
-        // Test filtering by part of the name
         System.out.println("\nFiltered by part of the name:");
         zmagServiceStream.getByPartName("Iv").forEach(athlete -> System.out.println(athlete.getName()));
 
-        // Test filtering by current month
         System.out.println("\nFiltered by current month:");
         zmagServiceStream.getByCurrentMonth().forEach(athlete -> System.out.println(athlete.getName()));
     }

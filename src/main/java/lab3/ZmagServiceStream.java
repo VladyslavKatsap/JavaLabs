@@ -34,13 +34,13 @@ public class ZmagServiceStream implements ZmagService{
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public List<Athlete> getByPartName(String name) {
-        List<Athlete> result = new ArrayList<>(athletes);
-        return result.stream()
-                .filter(athlete -> athlete.getName().contains(name))
-                .sorted(Comparator.comparing(Athlete::getName))
-                .collect(Collectors.toList());
+        @Override
+        public List<Athlete> getByPartName(String name) {
+            List<Athlete> result = new ArrayList<>(athletes);
+            return result.stream()
+                    .filter(athlete -> athlete.getName().contains(name))
+                    .sorted()
+                    .collect(Collectors.toList());
     }
 
     @Override
