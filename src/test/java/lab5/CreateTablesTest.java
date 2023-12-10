@@ -34,10 +34,10 @@ public class CreateTablesTest {
                     "UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE\n"+
                     ");");
 
-            sqlExecutor.executeQueryWithNoResult("CREATE TABLE position(\n" +
+            sqlExecutor.executeQueryWithNoResult("CREATE TABLE `position`(\n" +
                     "`id` INT NOT NULL AUTO_INCREMENT,\n"+
                     "`competition_id` INT NOT NULL,\n"+
-                    "`place` VARCHAR(45) NOT NULL,\n"+
+                    "`place` INT NOT NULL,\n"+
                     "`athlete_id` INT NOT NULL,\n"+
                     "PRIMARY KEY (`id`, `competition_id`, `athlete_id`),\n"+
                     "UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,\n"+
@@ -61,6 +61,7 @@ public class CreateTablesTest {
                     "PRIMARY KEY (`id`),\n"+
                     "UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE\n"+
                     ");");
+
             sqlExecutor.executeQueryWithNoResult("CREATE TABLE championship_has_position(\n" +
                     "`championship_id` INT NOT NULL,\n"+
                     "`position_id` INT NOT NULL,\n"+
