@@ -106,26 +106,28 @@ public class Athlete implements Comparable<Athlete>{
             this.dateOfBirth = dateOfBirth;
             return this;
         }
+
         public Athlete build() {
             Athlete athlete = new Athlete(this);
-            validate(athlete);
+            //validate(athlete);
             return athlete;
         }
 
-        private void validate(Athlete athlete){
-            ValidatorFactory factory = Validator.buildDefaultValidatorFactory();
-            Validator validator = factory.getValidator();
-
-            Set<String> validationMessages = new HashSet<>();
-            Set<ConstraintViolation<Athlete>> violations = validator.validate(athlete);
-
-            for (ConstraintViolation<Athlete> violation : violations) {
-                validationMessages.add(violation.getInvalidValue() + ": " + violation.getMessage());
-            }
-
-            if (!validationMessages.isEmpty()) {
-                throw new IllegalArgumentException("Invalid fields: " + String.join(", ", validationMessages));
-            }
-        }
-        }
+//        private void validate(Athlete athlete){
+//            ValidatorFactory factory = Validator.buildDefaultValidatorFactory();
+//            Validator validator = factory.getValidator();
+//
+//            Set<String> validationMessages = new HashSet<>();
+//            Set<ConstraintViolation<Athlete>> violations = validator.validate(athlete);
+//
+//            for (ConstraintViolation<Athlete> violation : violations) {
+//                validationMessages.add(violation.getInvalidValue() + ": " + violation.getMessage());
+//            }
+//
+//            if (!validationMessages.isEmpty()) {
+//                throw new IllegalArgumentException("Invalid fields: " + String.join(", ", validationMessages));
+//            }
+//        }
+//        }
     }
+}
