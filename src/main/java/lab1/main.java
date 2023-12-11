@@ -12,13 +12,13 @@ public class main {
                 .dateOfBirth(LocalDate.of(2004, 7, 14))
                 .build();
 
-        Championship championship = new Championship();
-        championship.setTitle("First");
-        Position position = new Position();
-        position.setCompetition(benchPress);
-        position.setAthlete(athlete);
-        position.setPlace(1);
-        championship.addPosition(position);
+//        Championship championship = new Championship();
+//        championship.setTitle("First");
+//        Position position = new Position();
+//        position.setCompetition(benchPress);
+//        position.setAthlete(athlete);
+//        position.setPlace(1);
+//        championship.addPosition(position);
 //        athlete.championshipd(bench_press, 1);
 //        athlete.championshipd(deadlift, 3);
 //        athlete.championshipd(squat, 2);
@@ -26,6 +26,16 @@ public class main {
 //        System.out.println("Athlete Info:");
 //        System.out.println(athlete);
 
-        System.out.println(championship);
+//        System.out.println(championship);
+        System.out.println("Athlete Info:");
+        System.out.println(athlete);
+
+        try {
+            Athlete athlete1 = new Athlete.AthleteBuilder("Kate")
+                    .dateOfBirth(LocalDate.of(2025, 10, 15))
+                    .build();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+        }
     }
 }

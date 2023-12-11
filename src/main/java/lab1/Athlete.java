@@ -1,8 +1,12 @@
 package lab1;
-
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import javax.validation.constraints.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -106,28 +110,25 @@ public class Athlete implements Comparable<Athlete>{
             this.dateOfBirth = dateOfBirth;
             return this;
         }
+        private void validate(Athlete athlete){
+            Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
+            Set<String> validationMessages = new HashSet<>();
+            Set<ConstraintViolation<Athlete>> violations = validator.validate(athlete);
+
+            for (ConstraintViolation<Athlete> violation : violations) {
+                validationMessages.add(violation.getInvalidValue() + ": " + violation.getMessage());
+            }
+
+            if (!validationMessages.isEmpty()) {
+                throw new IllegalArgumentException("Invalid fields: " + String.join(", ", validationMessages));
+            }
+        }
 
         public Athlete build() {
             Athlete athlete = new Athlete(this);
-            //validate(athlete);
+            validate(athlete);
             return athlete;
         }
-
-//        private void validate(Athlete athlete){
-//            ValidatorFactory factory = Validator.buildDefaultValidatorFactory();
-//            Validator validator = factory.getValidator();
-//
-//            Set<String> validationMessages = new HashSet<>();
-//            Set<ConstraintViolation<Athlete>> violations = validator.validate(athlete);
-//
-//            for (ConstraintViolation<Athlete> violation : violations) {
-//                validationMessages.add(violation.getInvalidValue() + ": " + violation.getMessage());
-//            }
-//
-//            if (!validationMessages.isEmpty()) {
-//                throw new IllegalArgumentException("Invalid fields: " + String.join(", ", validationMessages));
-//            }
-//        }
-//        }
+        }
     }
-}
