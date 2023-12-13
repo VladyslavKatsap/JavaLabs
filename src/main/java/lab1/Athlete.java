@@ -1,4 +1,5 @@
 package lab1;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -12,7 +13,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 
-public class Athlete implements Comparable<Athlete>{
+public class Athlete implements Comparable<Athlete> {
 
     public String getName() {
         return name;
@@ -26,8 +27,8 @@ public class Athlete implements Comparable<Athlete>{
         this.dateOfBirth = dateOfBirth;
     }
 
-   // public void setChampionships(List<Championship> enrollments) {
-     //   this.championships = championships;
+    // public void setChampionships(List<Championship> enrollments) {
+    //   this.championships = championships;
     //}
 
     public LocalDate getDateOfBirth() {
@@ -48,9 +49,17 @@ public class Athlete implements Comparable<Athlete>{
         this.dateOfBirth = builder.dateOfBirth;
     }
 
+    public Athlete(String name, LocalDate dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     @Override
     public String toString() {
-        return "Athlete name = '" + name + "', date of birth = " + dateOfBirth; //", championships: " + "\n" + championships;
+        return "Athlete{" +
+                "name='" + name + '\'' +
+                ", date='" + dateOfBirth + '\''+
+                '}';
     }
 
     @Override
@@ -107,7 +116,8 @@ public class Athlete implements Comparable<Athlete>{
             this.dateOfBirth = dateOfBirth;
             return this;
         }
-        private void validate(Athlete athlete){
+
+        private void validate(Athlete athlete) {
             Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
             Set<String> validationMessages = new HashSet<>();
@@ -127,5 +137,5 @@ public class Athlete implements Comparable<Athlete>{
             validate(athlete);
             return athlete;
         }
-        }
     }
+}

@@ -1,10 +1,14 @@
 package lab2;
 
-import java.io.IOException;
+import java.io.File;
 
-public interface Serializer {
-    <T> void serialize(T entity, String filename) throws IOException;
+public interface Serializer<T> {
 
-    <T> T deserialize(String filename, Class<T> entityType) throws IOException;
+    String serialize(T entity);
 
+    T deserialize(String data, Class<T> valueType);
+
+    void writeToFile(T entity, File file);
+
+    T readFromFile(File file, Class<T> valueType);
 }
