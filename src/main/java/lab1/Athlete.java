@@ -2,18 +2,15 @@ package lab1;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import javax.validation.constraints.*;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
 
 public class Athlete implements Comparable<Athlete>{
 
@@ -53,7 +50,7 @@ public class Athlete implements Comparable<Athlete>{
 
     @Override
     public String toString() {
-        return "Athlete name = '" + name + "', age = " + dateOfBirth; //", championships: " + "\n" + championships;
+        return "Athlete name = '" + name + "', date of birth = " + dateOfBirth; //", championships: " + "\n" + championships;
     }
 
     @Override

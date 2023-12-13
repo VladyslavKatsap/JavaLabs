@@ -9,7 +9,7 @@ public class main {
         Competition squat = new Competition("Squat", 86);
 
         Athlete athlete = new Athlete.AthleteBuilder("Igor")
-                .dateOfBirth(LocalDate.of(2004, 7, 14))
+                .dateOfBirth(LocalDate.of(2024, 7, 14))
                 .build();
 
 //        Championship championship = new Championship();
@@ -29,13 +29,5 @@ public class main {
 //        System.out.println(championship);
         System.out.println("Athlete Info:");
         System.out.println(athlete);
-
-        try {
-            Athlete athlete1 = new Athlete.AthleteBuilder("Kate")
-                    .dateOfBirth(LocalDate.of(2025, 10, 15))
-                    .build();
-        } catch (IllegalArgumentException e) {
-            System.out.println("Caught IllegalArgumentException: " + e.getMessage());
-        }
     }
 }

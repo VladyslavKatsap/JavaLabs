@@ -1,6 +1,6 @@
 package lab3;
 
-import jakarta.validation.Validator;
+import javax.validation.Validator;
 import lab1.Athlete;
 
 import java.time.LocalDate;

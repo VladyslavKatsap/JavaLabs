@@ -10,17 +10,17 @@ public class Main {
         Athlete athlete = new Athlete.AthleteBuilder("Andriy")
                 .dateOfBirth(LocalDate.of(2003, 11, 13))
                 .build();
-
-//        Serializer TxtS = new TxtS();
-//        TxtS.serialize(athlete, "num1.txt");
-//        Athlete txtdeserialized = TxtS.deserialize("num1.txt", Athlete.class);
+        System.out.println(athlete);
+        Serializer TxtS = new TxtS();
+        TxtS.serialize(athlete, "num1.txt");
+        Athlete txtdeserialized = TxtS.deserialize("num1.txt", Athlete.class);
 
 //        Serializer jsonS = new JsonS();
 //        jsonS.serialize(athlete, "athlete.json");
 //        Athlete deserializedAth = jsonS.deserialize("athlete.json", Athlete.class);
 
-        Serializer XmlS = new XmlS();
-        XmlS.serialize(athlete, "athlete.xml");
-        Athlete deserialized = XmlS.deserialize("athlete.xml", Athlete.class);
+//        Serializer XmlS = new XmlS();
+//        XmlS.serialize(athlete, "athlete.xml");
+//        Athlete deserialized = XmlS.deserialize("athlete.xml", Athlete.class);
     }
 }
